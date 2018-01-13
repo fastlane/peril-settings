@@ -5,6 +5,7 @@ import { Issues } from "github-webhook-event-types"
 declare const peril: any // danger/danger#351
 const gh = danger.github as any as Issues
 const issue = gh.issue
+const repo = gh.repository
 const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
@@ -25,8 +26,8 @@ if (text.includes("regression")) {
     })
 
     await api.issues.addLabels({
-      owner: issue.owner,
-      repo: issue.repo,
+      owner: repo.owner.login,
+      repo: repo.name,
       number: issue.number,
       labels: ["status: regression"]
     })

@@ -1,1 +1,6 @@
-{}
+{
+  "rules": {
+    "pull_request": "fastlane/peril-settings@file.js",
+    "issues": "fastlane/peril-settings@file.js"
+  }
+}

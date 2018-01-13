@@ -12,7 +12,9 @@ const api = danger.github.api
 if (text.includes("regression")) {
   var url = peril.env.SLACK_WEBHOOK_URL || "";
   var webhook = new IncomingWebhook(url);
+  console.log("Defined slack web hook")
   schedule( async () => {
+   console.log("Inside {")
    await webhook.send({
       unfurl_links: false,
       attachments: [{
@@ -25,6 +27,7 @@ if (text.includes("regression")) {
       }]
     })
 
+   console.log("Add label")
     await api.issues.addLabels({
       owner: repo.owner.login,
       repo: repo.name,

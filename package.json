@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@slack/client": "^3.15.0",
+    "github-webhook-event-types": "^1.0.0",
+    "typescript": "^2.6.2"
+  }
+}

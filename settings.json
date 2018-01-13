@@ -1,6 +1,10 @@
 {
+  "settings": {
+    "env_vars": ["SLACK_RFC_WEBHOOK_URL"],
+    "modules": ["@slack/client"]
+  },
   "rules": {
-    "pull_request": "fastlane/peril-settings@file.js",
-    "issues": "fastlane/peril-settings@file.js"
+    // https://artsy.github.io/blog/2017/09/04/Introducing-Peril/#Events
+    "issues.opened": "fastlane/peril-settings@danger/regressions.ts"
   }
 }

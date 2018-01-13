@@ -1,6 +1,6 @@
 {
   "settings": {
-    "env_vars": ["SLACK_RFC_WEBHOOK_URL"],
+    "env_vars": ["PRIVATE_GITHUB_SIGNING_KEY"],
     "modules": ["@slack/client"]
   },
   "rules": {

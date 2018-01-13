@@ -7,7 +7,6 @@ const gh = danger.github as any as Issues
 const issue = gh.issue
 const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
-console.log(peril.env)
 
 if (text.includes("regression")) {
   var url = peril.env.SLACK_WEBHOOK_URL || "";

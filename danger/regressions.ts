@@ -19,11 +19,12 @@ if (text.includes("regression")) {
       unfurl_links: false,
       attachments: [{
         pretext: "New PR/Issue containing the word 'regression'",
-        color: "error",
+        color: "Error",
         title: issue.title,
         title_link: issue.html_url,
         author_name: issue.user.login,
-        author_icon: issue.user.avatar_url
+        author_icon: issue.user.avatar_url,
+        channel: "#action"
       }]
     })
 

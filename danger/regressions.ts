@@ -6,10 +6,30 @@ declare const peril: any // danger/danger#351
 const gh = danger.github as any as Issues
 const issue = gh.issue
 const repo = gh.repository
-const text = (issue.title + issue.body).toLowerCase()
+var text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-if (text.includes("regression")) {
+const startMarker = "<!-- start regression question -->"
+const endMarker = "<!-- end regression question -->"
+
+var start = text.indexOf(startMarker);
+var end = text.indexOf(endMarker)
+
+var hasRegressionChecked = false;
+
+if (start !== -1 && end !== -1) {
+  end = end + endMarker.length
+  
+  var regressionQuestion = text.substring(start, end);   
+  text = text.replace(regressionQuestion, '');
+  
+  if (regressionQuestion.includes("- [x] yes")) {
+   hasRegressionChecked = true;
+  }
+}
+
+if (hasRegressionChecked || text.includes("regression")) {
+  console.log("IT HAS A REGRESSION");
   var url = peril.env.SLACK_WEBHOOK_URL || "";
   var webhook = new IncomingWebhook(url);
   schedule( async () => {

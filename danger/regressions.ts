@@ -9,11 +9,14 @@ const repo = gh.repository
 var text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-var start = text.indexOf("<!-- start ignore regression -->");
-var end = text.indexOf("<!-- end ignore regression -->")
+const startMarker = "<!-- start ignore regression -->"
+const endMarker = "<!-- end ignore regression -->"
+
+var start = text.indexOf(startMarker);
+var end = text.indexOf(endMarker)
 
 if (start !== -1 && end !== -1) {
-  end = "<!-- end ignore regression -->".length
+  end = end + endMarker.length
   
   var ignoreContent = text.substring(start, end);
   console.log("text before: " + text);

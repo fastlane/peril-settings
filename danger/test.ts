@@ -16,7 +16,8 @@ console.log("text", text);
 if (text.includes("regression")) {
   console.log("IT HAS A REGRESSION");
   var url = peril.env.SLACK_WEBHOOK_URL || "";
-  var webhook = new IncomingWebhook(url);
+  console.log('IncomingWebhook', IncomingWebhook);
+//   var webhook = new IncomingWebhook(url);
   
   console.log("url", url);
   

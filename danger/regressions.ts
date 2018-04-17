@@ -10,6 +10,7 @@ const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
 if (text.includes("regression")) {
+  console.log("IT HAS A REGRESSION");
   var url = peril.env.SLACK_WEBHOOK_URL || "";
   var webhook = new IncomingWebhook(url);
   schedule( async () => {
@@ -21,8 +22,9 @@ if (text.includes("regression")) {
         title: issue.title,
         title_link: issue.html_url,
         author_name: issue.user.login,
-        author_icon: issue.user.avatar_url,
-        channel: "C0RNLRLG6"
+        author_icon: issue.user.avatar_url
+//         ,
+//         channel: "C0RNLRLG6"
       }]
     })
 

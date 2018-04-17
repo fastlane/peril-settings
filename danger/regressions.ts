@@ -6,11 +6,21 @@ declare const peril: any // danger/danger#351
 const gh = danger.github as any as Issues
 const issue = gh.issue
 const repo = gh.repository
-const text = (issue.title + issue.body).toLowerCase()
+var text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-var strippedAlphabet = text.replace(/h.*s/, 'hs');
-console.log("strippedAlphabet", strippedAlphabet) 
+var start = text.indexOf("<!-- start ignore regression -->");
+var end = text.indexOf("<!-- end ignore regression -->")
+
+if (start !== -1 && end !== -1) {
+  end = "<!-- end ignore regression -->".length
+  
+  var ignoreContent = text.substring(start, end);
+  console.log("text before: " + text);
+  text = text.replace(ignoreContent, '');
+  console.log("text after: " + text);
+}
+
 
 // if (text.includes("regression")) {
 //   console.log("IT HAS A REGRESSION");

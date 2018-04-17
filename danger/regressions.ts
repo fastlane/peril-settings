@@ -22,7 +22,7 @@ if (start !== -1 && end !== -1) {
   
   var regressionQuestion = text.substring(start, end);
   
-  if (regressionQuestion.includes("- [x] Yes")) {
+  if (regressionQuestion.includes("- [x] yes")) {
    hasRegressionChecked = true;
   }
   

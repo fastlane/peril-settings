@@ -9,23 +9,32 @@ const repo = gh.repository
 var text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-const startMarker = "<!-- start ignore regression -->"
-const endMarker = "<!-- end ignore regression -->"
+const startMarker = "<!-- start regression question -->"
+const endMarker = "<!-- end regression question -->"
 
 var start = text.indexOf(startMarker);
 var end = text.indexOf(endMarker)
 
+var hasRegressionChecked = false;
+
 if (start !== -1 && end !== -1) {
   end = end + endMarker.length
   
-  var ignoreContent = text.substring(start, end);
+  var regressionQuestion = text.substring(start, end);
+  
+  if (regressionQuestion.includes("- [x] Yes")) {
+   hasRegressionChecked = true;
+  }
+  
   console.log("text before: " + text);
   text = text.replace(ignoreContent, '');
   console.log("text after: " + text);
 }
 
+console.log("hasRegressionChecked", hasRegressionChecked);
+console.log("text includes", text.includes("regression"));
 
-if (text.includes("regression")) {
+if (hasRegressionChecked || text.includes("regression")) {
   console.log("IT HAS A REGRESSION");
   var url = peril.env.SLACK_WEBHOOK_URL || "";
   var webhook = new IncomingWebhook(url);

@@ -9,7 +9,7 @@ const repo = gh.repository
 const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-var strippedAlphabet = text.replace(/H.*S/, 'HS');
+var strippedAlphabet = text.replace(/h.*s/, 'hs');
 console.log("strippedAlphabet", strippedAlphabet) 
 
 // if (text.includes("regression")) {

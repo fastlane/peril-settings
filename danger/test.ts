@@ -11,4 +11,6 @@ const repo = gh.repository
 const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
+console.log("text", text);
+
 console.log("end test");

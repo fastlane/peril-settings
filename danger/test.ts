@@ -13,8 +13,8 @@ const api = danger.github.api
 
 console.log("text", text);
 
-// if (text.includes("regression")) {
-//   console.log("IT HAS A REGRESSION");
+if (text.includes("regression")) {
+  console.log("IT HAS A REGRESSION");
 //   var url = peril.env.SLACK_WEBHOOK_URL || "";
 //   var webhook = new IncomingWebhook(url);
   
@@ -41,6 +41,6 @@ console.log("text", text);
 //       labels: ["status: regression"]
 //     })
 //   });
-// }
+}
 
 console.log("end test");

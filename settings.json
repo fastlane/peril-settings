@@ -4,6 +4,6 @@
     "modules": ["@slack/client"]
   },
   "rules": {
-    ///"issues.opened": "joshdholtz/peril-settings@danger/regressions.ts"
+    //"issues.opened": "joshdholtz/peril-settings@danger/regressions.ts"
   }
 }

@@ -13,12 +13,12 @@ const api = danger.github.api
 
 console.log("text", text);
 
-if (text.includes("regression")) {
-  console.log("IT HAS A REGRESSION");
-  var url = peril.env.SLACK_WEBHOOK_URL || "";
-  var webhook = new IncomingWebhook(url);
+// if (text.includes("regression")) {
+//   console.log("IT HAS A REGRESSION");
+//   var url = peril.env.SLACK_WEBHOOK_URL || "";
+//   var webhook = new IncomingWebhook(url);
   
-  console.log("url", url);
+//   console.log("url", url);
   
 //   schedule( async () => {
 //    await webhook.send({
@@ -41,6 +41,6 @@ if (text.includes("regression")) {
 //       labels: ["status: regression"]
 //     })
 //   });
-}
+// }
 
 console.log("end test");

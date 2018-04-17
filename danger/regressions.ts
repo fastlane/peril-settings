@@ -27,7 +27,7 @@ if (start !== -1 && end !== -1) {
   }
   
   console.log("text before: " + text);
-  text = text.replace(ignoreContent, '');
+  text = text.replace(regressionQuestion, '');
   console.log("text after: " + text);
 }
 

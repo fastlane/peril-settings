@@ -9,30 +9,33 @@ const repo = gh.repository
 const text = (issue.title + issue.body).toLowerCase()
 const api = danger.github.api
 
-if (text.includes("regression")) {
-  console.log("IT HAS A REGRESSION");
-  var url = peril.env.SLACK_WEBHOOK_URL || "";
-  var webhook = new IncomingWebhook(url);
-  schedule( async () => {
-   await webhook.send({
-      unfurl_links: false,
-      attachments: [{
-        pretext: "New PR/Issue containing the word 'regression'",
-        color: "danger",
-        title: issue.title,
-        title_link: issue.html_url,
-        author_name: issue.user.login,
-        author_icon: issue.user.avatar_url
-//         ,
-//         channel: "C0RNLRLG6"
-      }]
-    })
+var strippedAlphabet = alphabet.replace(/H.*S/, 'HS');
+console.log("strippedAlphabet", strippedAlphabet) 
 
-    await api.issues.addLabels({
-      owner: repo.owner.login,
-      repo: repo.name,
-      number: issue.number,
-      labels: ["status: regression"]
-    })
-  });
-}
+// if (text.includes("regression")) {
+//   console.log("IT HAS A REGRESSION");
+//   var url = peril.env.SLACK_WEBHOOK_URL || "";
+//   var webhook = new IncomingWebhook(url);
+//   schedule( async () => {
+//    await webhook.send({
+//       unfurl_links: false,
+//       attachments: [{
+//         pretext: "New PR/Issue containing the word 'regression'",
+//         color: "danger",
+//         title: issue.title,
+//         title_link: issue.html_url,
+//         author_name: issue.user.login,
+//         author_icon: issue.user.avatar_url
+// //         ,
+// //         channel: "C0RNLRLG6"
+//       }]
+//     })
+
+//     await api.issues.addLabels({
+//       owner: repo.owner.login,
+//       repo: repo.name,
+//       number: issue.number,
+//       labels: ["status: regression"]
+//     })
+//   });
+// }

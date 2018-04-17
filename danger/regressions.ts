@@ -20,19 +20,13 @@ var hasRegressionChecked = false;
 if (start !== -1 && end !== -1) {
   end = end + endMarker.length
   
-  var regressionQuestion = text.substring(start, end);
+  var regressionQuestion = text.substring(start, end);   
+  text = text.replace(regressionQuestion, '');
   
   if (regressionQuestion.includes("- [x] yes")) {
    hasRegressionChecked = true;
   }
-  
-  console.log("text before: " + text);
-  text = text.replace(regressionQuestion, '');
-  console.log("text after: " + text);
 }
-
-console.log("hasRegressionChecked", hasRegressionChecked);
-console.log("text includes", text.includes("regression"));
 
 if (hasRegressionChecked || text.includes("regression")) {
   console.log("IT HAS A REGRESSION");
@@ -48,7 +42,7 @@ if (hasRegressionChecked || text.includes("regression")) {
         title_link: issue.html_url,
         author_name: issue.user.login,
         author_icon: issue.user.avatar_url,
-//         channel: "C0RNLRLG6"
+        channel: "C0RNLRLG6"
       }]
     })
 

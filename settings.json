@@ -5,7 +5,7 @@
   },
   "rules": {
     // https://artsy.github.io/blog/2017/09/04/Introducing-Peril/#Events
-    "issues.opened": "fastlane/peril-settings@danger/regressions.ts"
+    "issues.opened": "fastlane/peril-settings@danger/regressions.ts",
     "pull_request": "fastlane/peril-settings@danger/pr.ts"
   }
 }
